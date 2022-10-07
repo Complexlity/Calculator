@@ -98,6 +98,7 @@ class Calculator {
             setTimeout(() => {
                 message.innerHTML = ''
             }, 3000)
+            this.currentOperand = this.currentOperand.toExponential(10)
         }
         this.currentOperandTextElement.innerText = 
         this.getDisplayNumber(this.currentOperand)
