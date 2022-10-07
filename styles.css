@@ -34,10 +34,6 @@ h1 {
    min-height:100%;
 }
 
-.previous-operand{
-    display:none;
-}
-
 .calculator {
     display:grid;
     grid-template-columns: repeat(4, 80px);
@@ -46,7 +42,7 @@ h1 {
     border-radius:30px 30px 40px 40px;
 }
 
-.output{
+/* .output{
     background-color:rgb(47, 46, 46);
     color:white;
     display:flex;
@@ -61,30 +57,30 @@ height:100%;
 display:flex;
 align-items: center;
 padding-inline:5px;
-overflow-x: auto;
+overflow-x: hidden;
+} */
 
+.output {
+    grid-column: 1/-1;
+    background-color:rgb(47, 46, 46);
+    display:flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: flex-end;
+    padding:10px;
+    word-wrap: break-word;
+    word-break: break-all
 }
 
-/* width */
-::-webkit-scrollbar {
-    width: 10px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: #f1f1f1; 
-  }
-   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #888; 
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555; 
-  }
+.output .previous-operand {
+    color:hsl(0, 0%, 60%);
+    font-size:1.5rem;
+}
 
+.output .current-operand {
+    color: white;
+    font-size:2.5rem;
+}
 
 button{
     background-color:hsla(0, 0%, 10%);

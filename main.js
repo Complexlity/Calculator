@@ -19,14 +19,6 @@ class Calculator {
     }
 
     appendNumber(number){
-        if (this.currentOperand.toString().length > 12){
-            message.style.display = 'block'
-            message.innerHTML = 'CANNOT EXCEED 12 CHARACTERS'
-            setTimeout(() => {
-                message.style.display = 'none'
-            }, 1000)
-            return
-        }
         if (number === '.' && this.currentOperand.includes('.')) return
         this.currentOperand = this.currentOperand.toString() + number.toString()
     }
@@ -64,7 +56,6 @@ class Calculator {
         }
         
         if(Number.isInteger(computation)) this.currentOperand = computation
-        else this.currentOperand = computation.toFixed(2)
 
         this.operation = undefined
         this.previousOperand = ''
@@ -93,11 +84,6 @@ class Calculator {
     }
     updateDisplay(){
         if (this.currentOperand.toString().length > 14){
-            message.style.display = 'block'
-            message.innerHTML = 'NOTE: Number Too Large!! Result May Be Inaccurate!!'
-            setTimeout(() => {
-                message.innerHTML = ''
-            }, 3000)
             this.currentOperand = this.currentOperand.toExponential(10)
         }
         this.currentOperandTextElement.innerText = 
@@ -161,20 +147,4 @@ deleteButton.addEventListener('click', button => {
     calculator.updateDisplay()
 
 })
-
-// function badDisplay(){
-//     let tested = calculator.currentOperand.toString().length
-//     console.log(tested)
-//     if (tested > 15){
-//         console.log('I failed')
-//         message.innerHTML = 'Max Number Reached'
-//         return true
-//     }
-
-//     else if (tested <= 15){
-//         console.log('I passed')
-//         message.innerHTML = ''
-//         return false
-//     }
-// }
 
