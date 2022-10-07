@@ -62,7 +62,9 @@ class Calculator {
             default:
                 return
         }
-        this.currentOperand = computation.toFixed(2)
+        
+        if(Number.isInteger(computation)) this.currentOperand = computation
+        else this.currentOperand = computation.toFixed(2)
 
         this.operation = undefined
         this.previousOperand = ''
