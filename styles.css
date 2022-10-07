@@ -1,0 +1,88 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+body{
+    background:rgb(68, 183, 232);
+    margin:0;
+    padding:0;
+    height:100vh;
+    
+}
+
+h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size:3rem;
+}
+
+.message {
+    display:none;
+    margin-bottom:10px;
+    color:rgb(180, 29, 29);
+    font-size:1.5rem;
+}
+
+
+.container{
+   margin-inline:auto;
+   width:80%;
+   display:flex;
+   align-items: center;
+   justify-content: center;
+    flex-direction: column;
+   min-height:100%;
+}
+
+.previous-operand{
+    display:none;
+}
+
+.calculator {
+    display:grid;
+    grid-template-columns: repeat(4, 80px);
+    grid-template-rows: 90px repeat(5, 100px);
+    border:20px ridge silver;
+    border-radius:30px 30px 40px 40px;
+}
+
+.output{
+    background-color:rgb(47, 46, 46);
+    color:white;
+    display:flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size:2rem;
+    overflow:hidden;
+}
+
+.current-operand{
+height:100%;
+display:flex;
+align-items: center;
+padding-inline:5px;
+}
+
+
+button{
+    background-color:hsla(0, 0%, 10%);
+    color:white;
+    border:1px solid white;
+    font-size:1.5rem;
+    border-collapse: collapse;
+}
+
+button:hover{
+    background-color:hsla(0, 0%, 25%);
+
+}
+.output{
+    grid-column: 1/-1;
+}
+
+.clear, .equals{
+    grid-column: span 2;
+}
+
+
+
