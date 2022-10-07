@@ -50,12 +50,16 @@ class Calculator {
                 break
             case '÷':
                 computation = prev / current
+                if (current == 0) {
+                    computation = ''
+                    infinity = true
+                };
                 break
             default:
                 return
         }
         
-        if(Number.isInteger(computation)) this.currentOperand = computation
+        this.currentOperand = computation
 
         this.operation = undefined
         this.previousOperand = ''
@@ -68,7 +72,11 @@ class Calculator {
         let integerDisplay
         if (isNaN(integerDigits)){
             integerDisplay = ''
-        }
+            if(infinity) {
+                integerDisplay = 'LOLZ'
+                infinity = false
+            }
+    }
         else {
             integerDisplay = integerDigits.toLocaleString('en', {
                 maximumFractionDigits:0
@@ -83,9 +91,7 @@ class Calculator {
         
     }
     updateDisplay(){
-        if (this.currentOperand.toString().length > 14){
-            this.currentOperand = this.currentOperand.toExponential(10)
-        }
+        
         this.currentOperandTextElement.innerText = 
         this.getDisplayNumber(this.currentOperand)
         if(this.operation != null){
@@ -106,6 +112,7 @@ const allClearButton = document.querySelector('[data-all-clear]')
 const previousOperandTextElement = document.querySelector('[data-previous-operand]')
 const currentOperandTextElement = document.querySelector('[data-current-operand]')
 const message = document.querySelector('[data-message]')
+let infinity = false;
 
 const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement)
 
